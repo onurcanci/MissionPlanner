@@ -6,39 +6,40 @@ using System.Threading.Tasks;
 
 namespace AirSurvey
 {
-    class LinearBatteryModelImpl : IBatteryModel
+    class DummyBatteryModel : IBatteryModel
     {
-        int _currentFlightTime = 0;
-        int _maximumFlightTime = 900; // 15 minutes
+        int maximumFlightTime = 0;
+        int currentFlightTime = 0;
+
+        public string getName()
+        {
+            return "Dummy Battery Model";
+        }
 
         public int getEstimatedFlightTime()
         {
-            return _maximumFlightTime - _currentFlightTime;   
+            return Math.Abs(new Random().Next()) % 50;
         }
 
         public int getEstimatedFlightTime(int currentSecond)
         {
-            return _maximumFlightTime - currentSecond;
+            return getEstimatedFlightTime() - currentSecond;
         }
 
         public int getMaximumFlightTime()
         {
-            return _maximumFlightTime;
+            return getEstimatedFlightTime();
         }
 
         public int getCurrentFlightTime()
         {
-            return _currentFlightTime;
+            return currentFlightTime;
         }
-
-        public String getName()
-        {
-            return "Linear battery model";
-        }
+    
 
         public void tick()
         {
-            _currentFlightTime++;
+ 	        currentFlightTime++;
         }
     }
 }

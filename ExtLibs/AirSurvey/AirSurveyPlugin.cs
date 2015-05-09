@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GMap.NET.WindowsForms;
 
 namespace AirSurvey
 {
-    class AirSurveyPlugin : MissionPlanner.Plugin.Plugin
+    public class AirSurveyPlugin : MissionPlanner.Plugin.Plugin
     {
         ToolStripMenuItem but;
 
@@ -46,10 +45,18 @@ namespace AirSurvey
 
         void but_Click(object sender, EventArgs e)
         {
-            var gridui = new AerialSurveyUI();
+            var gridui = new AerialSurveyUI(this);
             MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(gridui);
 
-            gridui.ShowDialog();
+
+            if (Host.FPDrawnPolygon == null || (Host.FPDrawnPolygon.Points.Count <= 1))
+            {
+                MessageBox.Show("You must draw a polygon to calculate aerial survey");
+            }
+            else
+            {
+                gridui.ShowDialog();
+            }
         }
 
         public override bool Exit()

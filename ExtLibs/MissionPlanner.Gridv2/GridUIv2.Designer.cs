@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GridUIv2));
-            this.BUT_Accept = new MissionPlanner.Controls.MyButton();
             this.label4 = new System.Windows.Forms.Label();
             this.NUM_angle = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +48,6 @@
             this.chk_grid = new System.Windows.Forms.CheckBox();
             this.chk_markers = new System.Windows.Forms.CheckBox();
             this.chk_boundary = new System.Windows.Forms.CheckBox();
-            this.map = new MissionPlanner.Controls.myGMAP();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -82,12 +80,14 @@
             this.NUM_minspd = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.CMB_aircraft = new System.Windows.Forms.ComboBox();
+            this.BUT_Accept = new MissionPlanner.Controls.MyButton();
             this.LBL_topdock = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonpan = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonbox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonmovebox = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtoneditbox = new System.Windows.Forms.ToolStripButton();
+            this.map = new MissionPlanner.Controls.myGMAP();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_angle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_altitude)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -104,13 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUM_minspd)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BUT_Accept
-            // 
-            resources.ApplyResources(this.BUT_Accept, "BUT_Accept");
-            this.BUT_Accept.Name = "BUT_Accept";
-            this.BUT_Accept.UseVisualStyleBackColor = true;
-            this.BUT_Accept.Click += new System.EventHandler(this.BUT_Accept_Click);
             // 
             // label4
             // 
@@ -292,35 +285,6 @@
             this.chk_boundary.Name = "chk_boundary";
             this.chk_boundary.UseVisualStyleBackColor = true;
             this.chk_boundary.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
-            // 
-            // map
-            // 
-            this.map.Bearing = 0F;
-            this.map.CanDragMap = true;
-            resources.ApplyResources(this.map, "map");
-            this.map.EmptyTileColor = System.Drawing.Color.Gray;
-            this.map.GrayScaleMode = false;
-            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.map.LevelsKeepInMemmory = 5;
-            this.map.MarkersEnabled = true;
-            this.map.MaxZoom = 19;
-            this.map.MinZoom = 2;
-            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.map.Name = "map";
-            this.map.NegativeMode = false;
-            this.map.PolygonsEnabled = true;
-            this.map.RetryLoadTile = 0;
-            this.map.RoutesEnabled = true;
-            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
-            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.map.ShowTileGridLines = false;
-            this.map.Zoom = 3D;
-            this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
-            this.map.OnPolygonEnter += new GMap.NET.WindowsForms.PolygonEnter(this.map_OnPolygonEnter);
-            this.map.OnPolygonLeave += new GMap.NET.WindowsForms.PolygonLeave(this.map_OnPolygonLeave);
-            this.map.MouseDown += new System.Windows.Forms.MouseEventHandler(this.map_MouseDown);
-            this.map.MouseMove += new System.Windows.Forms.MouseEventHandler(this.map_MouseMove);
-            this.map.MouseUp += new System.Windows.Forms.MouseEventHandler(this.map_MouseUp);
             // 
             // groupBox5
             // 
@@ -595,6 +559,13 @@
             this.CMB_aircraft.Name = "CMB_aircraft";
             this.CMB_aircraft.SelectedIndexChanged += new System.EventHandler(this.CMB_aircraft_SelectedIndexChanged);
             // 
+            // BUT_Accept
+            // 
+            resources.ApplyResources(this.BUT_Accept, "BUT_Accept");
+            this.BUT_Accept.Name = "BUT_Accept";
+            this.BUT_Accept.UseVisualStyleBackColor = true;
+            this.BUT_Accept.Click += new System.EventHandler(this.BUT_Accept_Click);
+            // 
             // LBL_topdock
             // 
             resources.ApplyResources(this.LBL_topdock, "LBL_topdock");
@@ -641,6 +612,35 @@
             resources.ApplyResources(this.toolStripButtoneditbox, "toolStripButtoneditbox");
             this.toolStripButtoneditbox.Name = "toolStripButtoneditbox";
             this.toolStripButtoneditbox.Click += new System.EventHandler(this.toolStripButtoneditbox_Click);
+            // 
+            // map
+            // 
+            this.map.Bearing = 0F;
+            this.map.CanDragMap = true;
+            resources.ApplyResources(this.map, "map");
+            this.map.EmptyTileColor = System.Drawing.Color.Gray;
+            this.map.GrayScaleMode = false;
+            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.LevelsKeepInMemmory = 5;
+            this.map.MarkersEnabled = true;
+            this.map.MaxZoom = 19;
+            this.map.MinZoom = 2;
+            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.map.Name = "map";
+            this.map.NegativeMode = false;
+            this.map.PolygonsEnabled = true;
+            this.map.RetryLoadTile = 0;
+            this.map.RoutesEnabled = true;
+            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
+            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.map.ShowTileGridLines = false;
+            this.map.Zoom = 3D;
+            this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
+            this.map.OnPolygonEnter += new GMap.NET.WindowsForms.PolygonEnter(this.map_OnPolygonEnter);
+            this.map.OnPolygonLeave += new GMap.NET.WindowsForms.PolygonLeave(this.map_OnPolygonLeave);
+            this.map.MouseDown += new System.Windows.Forms.MouseEventHandler(this.map_MouseDown);
+            this.map.MouseMove += new System.Windows.Forms.MouseEventHandler(this.map_MouseMove);
+            this.map.MouseUp += new System.Windows.Forms.MouseEventHandler(this.map_MouseUp);
             // 
             // GridUIv2
             // 
