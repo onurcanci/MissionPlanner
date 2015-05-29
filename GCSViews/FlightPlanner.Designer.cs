@@ -113,6 +113,7 @@
             this.comboBoxMapType = new System.Windows.Forms.ComboBox();
             this.lnk_kml = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_wpfile = new System.Windows.Forms.Label();
             this.BUT_loadwpfile = new MissionPlanner.Controls.MyButton();
             this.BUT_saveWPFile = new MissionPlanner.Controls.MyButton();
             this.panelMap = new System.Windows.Forms.Panel();
@@ -191,7 +192,7 @@
             this.panelBASE = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbl_wpfile = new System.Windows.Forms.Label();
+            this.loadDefaultTestPolygonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -690,6 +691,11 @@
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
+            // lbl_wpfile
+            // 
+            resources.ApplyResources(this.lbl_wpfile, "lbl_wpfile");
+            this.lbl_wpfile.Name = "lbl_wpfile";
+            // 
             // BUT_loadwpfile
             // 
             resources.ApplyResources(this.BUT_loadwpfile, "BUT_loadwpfile");
@@ -784,7 +790,8 @@
             this.flyToHereToolStripMenuItem,
             this.modifyAltToolStripMenuItem,
             this.enterUTMCoordToolStripMenuItem,
-            this.switchDockingToolStripMenuItem});
+            this.switchDockingToolStripMenuItem,
+            this.loadDefaultTestPolygonToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
@@ -1252,10 +1259,11 @@
             this.timer1.Interval = 1200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lbl_wpfile
+            // loadDefaultTestPolygonToolStripMenuItem
             // 
-            resources.ApplyResources(this.lbl_wpfile, "lbl_wpfile");
-            this.lbl_wpfile.Name = "lbl_wpfile";
+            this.loadDefaultTestPolygonToolStripMenuItem.Name = "loadDefaultTestPolygonToolStripMenuItem";
+            resources.ApplyResources(this.loadDefaultTestPolygonToolStripMenuItem, "loadDefaultTestPolygonToolStripMenuItem");
+            this.loadDefaultTestPolygonToolStripMenuItem.Click += new System.EventHandler(this.loadDefaultTestPolygonToolStripMenuItem_Click);
             // 
             // FlightPlanner
             // 
@@ -1425,5 +1433,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Dist;
         private System.Windows.Forms.DataGridViewTextBoxColumn AZ;
         private System.Windows.Forms.Label lbl_wpfile;
+        private System.Windows.Forms.ToolStripMenuItem loadDefaultTestPolygonToolStripMenuItem;
     }
 }

@@ -248,10 +248,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Up.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAABsSURBVDhP3ctBEoAgDENR7n9pxPajgG2Bcdz4NgxNkvIL
-        0TgJPhY701mLoGdcqT8QN8YTRQelqvtTCVEV94dwAYNrzHkZKx7LPPLigobjjOI4TqPGPNJHkVTBUX02
-        NlEVfxgXVByUqvG/IecD5G5D2fys9ecAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAGxJREFUOE/dy0ESgCAMQ1Huf2nE9qOAbYFx3Pg2DE2S8gvROAk+FjvTWYugZ1yp
+        PxA3xhNFB6Wq+1MJURX3h3ABg2vMeRkrHss88uKChuOM4jhOo8Y80keRVMFRfTY2URV/GBdUHJSq8b8h
+        5wPkbkPZ/Kz15wAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="Up.MinimumWidth" type="System.Int32, mscorlib">
@@ -271,10 +271,10 @@
   </data>
   <data name="Down.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAABrSURBVDhP3ctBEoAgDENR7n9prPQzQxFSHV35NgxNUuoL
-        87hIlLrwpyJRbX44Fkf3xZgkyqNdbGhsnJGOdaoaecTzECt/DOcbGIxjQyhRbcLHUNmg1M1/Q/GCeLA4
-        GeoDgmh9dWLmVJao9QCJWEPZmPpYGgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAGtJREFUOE/dy0ESgCAMQ1Huf2ms9DNDEVIdXfk2DE1S6gvzuEiUuvCnIlFtfjgW
+        R/fFmCTKo11saGyckY51qhp5xPMQK38M5xsYjGNDKFFtwsdQ2aDUzX9D8YJ4sDgZ6gOCaH11YuZUlqj1
+        AIlYQ9mY+lgaAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="Down.MinimumWidth" type="System.Int32, mscorlib">
@@ -822,10 +822,10 @@
   </data>
   <data name="dataGridViewImageColumn1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAABsSURBVDhP3ctBEoAgDENR7n9pxPajgG2Bcdz4NgxNkvIL
-        0TgJPhY701mLoGdcqT8QN8YTRQelqvtTCVEV94dwAYNrzHkZKx7LPPLigobjjOI4TqPGPNJHkVTBUX02
-        NlEVfxgXVByUqvG/IecD5G5D2fys9ecAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAGxJREFUOE/dy0ESgCAMQ1Huf2nE9qOAbYFx3Pg2DE2S8gvROAk+FjvTWYugZ1yp
+        PxA3xhNFB6Wq+1MJURX3h3ABg2vMeRkrHss88uKChuOM4jhOo8Y80keRVMFRfTY2URV/GBdUHJSq8b8h
+        5wPkbkPZ/Kz15wAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="dataGridViewImageColumn1.Width" type="System.Int32, mscorlib">
@@ -836,10 +836,10 @@
   </data>
   <data name="dataGridViewImageColumn2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAABrSURBVDhP3ctBEoAgDENR7n9prPQzQxFSHV35NgxNUuoL
-        87hIlLrwpyJRbX44Fkf3xZgkyqNdbGhsnJGOdaoaecTzECt/DOcbGIxjQyhRbcLHUNmg1M1/Q/GCeLA4
-        GeoDgmh9dWLmVJao9QCJWEPZmPpYGgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAGtJREFUOE/dy0ESgCAMQ1Huf2ms9DNDEVIdXfk2DE1S6gvzuEiUuvCnIlFtfjgW
+        R/fFmCTKo11saGyckY51qhp5xPMQK38M5xsYjGNDKFFtwsdQ2aDUzX9D8YJ4sDgZ6gOCaH11YuZUlqj1
+        AIlYQ9mY+lgaAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="dataGridViewImageColumn2.Width" type="System.Int32, mscorlib">
@@ -1518,19 +1518,19 @@
     <value>17, 17</value>
   </metadata>
   <data name="deleteWPToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="deleteWPToolStripMenuItem.Text" xml:space="preserve">
     <value>Delete WP</value>
   </data>
   <data name="insertWpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="insertWpToolStripMenuItem.Text" xml:space="preserve">
     <value>Insert Wp</value>
   </data>
   <data name="insertSplineWPToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="insertSplineWPToolStripMenuItem.Text" xml:space="preserve">
     <value>Insert Spline WP</value>
@@ -1554,7 +1554,7 @@
     <value>Circles</value>
   </data>
   <data name="loiterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="loiterToolStripMenuItem.Text" xml:space="preserve">
     <value>Loiter</value>
@@ -1572,43 +1572,43 @@
     <value>WP #</value>
   </data>
   <data name="jumpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="jumpToolStripMenuItem.Text" xml:space="preserve">
     <value>Jump</value>
   </data>
   <data name="rTLToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="rTLToolStripMenuItem.Text" xml:space="preserve">
     <value>RTL</value>
   </data>
   <data name="landToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="landToolStripMenuItem.Text" xml:space="preserve">
     <value>Land</value>
   </data>
   <data name="takeoffToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="takeoffToolStripMenuItem.Text" xml:space="preserve">
     <value>Takeoff</value>
   </data>
   <data name="setROIToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="setROIToolStripMenuItem.Text" xml:space="preserve">
     <value>DO_SET_ROI</value>
   </data>
   <data name="clearMissionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="clearMissionToolStripMenuItem.Text" xml:space="preserve">
     <value>Clear Mission</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 6</value>
+    <value>210, 6</value>
   </data>
   <data name="addPolygonPointToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>174, 22</value>
@@ -1641,7 +1641,7 @@
     <value>From SHP</value>
   </data>
   <data name="polygonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="polygonToolStripMenuItem.Text" xml:space="preserve">
     <value>Draw Polygon</value>
@@ -1683,7 +1683,7 @@
     <value>Load Rally from File</value>
   </data>
   <data name="rallyPointsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="rallyPointsToolStripMenuItem.Text" xml:space="preserve">
     <value>Rally Points</value>
@@ -1728,7 +1728,7 @@
     <value>Save to File</value>
   </data>
   <data name="geoFenceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="geoFenceToolStripMenuItem.Text" xml:space="preserve">
     <value>Geo-Fence</value>
@@ -1752,7 +1752,7 @@
     <value>Create Spline Circle</value>
   </data>
   <data name="autoWPToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="autoWPToolStripMenuItem.Text" xml:space="preserve">
     <value>Auto WP</value>
@@ -1809,7 +1809,7 @@
     <value>Reverse WPs</value>
   </data>
   <data name="mapToolToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="mapToolToolStripMenuItem.Text" xml:space="preserve">
     <value>Map Tool</value>
@@ -1845,7 +1845,7 @@
     <value>Load SHP File</value>
   </data>
   <data name="fileLoadSaveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="fileLoadSaveToolStripMenuItem.Text" xml:space="preserve">
     <value>File Load/Save</value>
@@ -1869,19 +1869,19 @@
     <value>Edit</value>
   </data>
   <data name="pOIToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="pOIToolStripMenuItem.Text" xml:space="preserve">
     <value>POI</value>
   </data>
   <data name="trackerHomeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="trackerHomeToolStripMenuItem.Text" xml:space="preserve">
     <value>Tracker Home</value>
   </data>
   <data name="flyToHereToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="flyToHereToolStripMenuItem.Text" xml:space="preserve">
     <value>Fly To Here</value>
@@ -1890,25 +1890,31 @@
     <value>False</value>
   </data>
   <data name="modifyAltToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="modifyAltToolStripMenuItem.Text" xml:space="preserve">
     <value>Modify Alt</value>
   </data>
   <data name="enterUTMCoordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="enterUTMCoordToolStripMenuItem.Text" xml:space="preserve">
     <value>Enter UTM Coord</value>
   </data>
   <data name="switchDockingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>213, 22</value>
   </data>
   <data name="switchDockingToolStripMenuItem.Text" xml:space="preserve">
     <value>Switch Docking</value>
   </data>
+  <data name="loadDefaultTestPolygonToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 22</value>
+  </data>
+  <data name="loadDefaultTestPolygonToolStripMenuItem.Text" xml:space="preserve">
+    <value>Load Default Test Polygon</value>
+  </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 494</value>
+    <value>214, 538</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -2563,6 +2569,12 @@
   </data>
   <data name="&gt;&gt;timer1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;loadDefaultTestPolygonToolStripMenuItem.Name" xml:space="preserve">
+    <value>loadDefaultTestPolygonToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;loadDefaultTestPolygonToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FlightPlanner</value>

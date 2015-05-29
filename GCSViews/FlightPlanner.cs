@@ -5832,5 +5832,49 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 }
             }
         }
+
+        private void loadDefaultTestPolygonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            
+
+                drawnpolygonsoverlay.Markers.Clear();
+                drawnpolygonsoverlay.Polygons.Clear();
+                drawnpolygon.Points.Clear();
+
+                PointLatLng point;
+
+                addPolyPoint(new PointLatLng(40.0816855025443, 32.5873374938965));
+                addPolyPoint(new PointLatLng(40.0816855025443, 32.5873374938965));
+                addPolyPoint(new PointLatLng(40.0818537852964, 32.5879383087158));
+                addPolyPoint(new PointLatLng(40.081229905689,  32.5884157419205));
+                addPolyPoint(new PointLatLng(40.0811334501079, 32.5874957442284));
+                addPolyPoint(new PointLatLng(40.0811416590989, 32.5862833857536));
+                addPolyPoint(new PointLatLng(40.0819728143089, 32.5859320163727));
+                addPolyPoint(new PointLatLng(40.0816855025443, 32.5873374938965));
+
+
+                // remove loop close
+                if (drawnpolygon.Points.Count > 1 && drawnpolygon.Points[0] == drawnpolygon.Points[drawnpolygon.Points.Count - 1])
+                {
+                    drawnpolygon.Points.RemoveAt(drawnpolygon.Points.Count - 1);
+                }
+
+                drawnpolygonsoverlay.Polygons.Add(drawnpolygon);
+
+                MainMap.UpdatePolygonLocalPosition(drawnpolygon);
+
+                MainMap.Invalidate();
+
+                MainMap.ZoomAndCenterMarkers(drawnpolygonsoverlay.Id);
+            
+        }
+
+        private void addPolyPoint(PointLatLng point)
+        {
+            drawnpolygon.Points.Add(point);
+            addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), point.Lng, point.Lat, 0);
+        }
+
     }
 }

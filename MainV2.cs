@@ -303,8 +303,10 @@ namespace MissionPlanner
             InitializeComponent();
 
             MyView = new MainSwitcher(this);
-
             View = MyView;
+
+            
+
 
             AdvancedChanged += updateAdvanced;
 
@@ -2185,14 +2187,14 @@ namespace MissionPlanner
 
         private void checkupdate(object stuff)
         {
-            try
-            {
-                MissionPlanner.Utilities.Update.CheckForUpdate();
-            }
-            catch (Exception ex)
-            {
-                log.Error("Update check failed", ex);
-            }
+            //try
+            //{
+            //    MissionPlanner.Utilities.Update.CheckForUpdate();
+            //}
+            //catch (Exception ex)
+            //{
+            //    log.Error("Update check failed", ex);
+            //}
         }
 
         private void TOOL_APMFirmware_SelectedIndexChanged(object sender, EventArgs e)
