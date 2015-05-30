@@ -35,6 +35,8 @@ namespace AirSurvey
             }
         }
 
+        public bool active = true;
+
         public InternalWayPoint(utmpos position, int column, int row)
         {
             this._row = row;

@@ -49,7 +49,6 @@
             this.sensorWidth = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.calculateBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.markerMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -57,6 +56,8 @@
             this.btnCalculate = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.lblLon = new System.Windows.Forms.Label();
             this.lblLat = new System.Windows.Forms.Label();
             this.lblFovDimensions = new System.Windows.Forms.Label();
@@ -142,7 +143,7 @@
             this.flightAltitudeNm.Size = new System.Drawing.Size(143, 20);
             this.flightAltitudeNm.TabIndex = 5;
             this.flightAltitudeNm.Value = new decimal(new int[] {
-            400,
+            100,
             0,
             0,
             0});
@@ -277,7 +278,7 @@
             this.focalLength.Size = new System.Drawing.Size(144, 20);
             this.focalLength.TabIndex = 5;
             this.focalLength.Value = new decimal(new int[] {
-            18,
+            25,
             0,
             0,
             0});
@@ -368,17 +369,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Sensor width :";
             // 
-            // calculateBtn
-            // 
-            this.calculateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.calculateBtn.Location = new System.Drawing.Point(701, 236);
-            this.calculateBtn.Name = "calculateBtn";
-            this.calculateBtn.Size = new System.Drawing.Size(134, 23);
-            this.calculateBtn.TabIndex = 3;
-            this.calculateBtn.Text = "Calculate Route";
-            this.calculateBtn.UseVisualStyleBackColor = true;
-            this.calculateBtn.Click += new System.EventHandler(this.calculateBtn_Click);
-            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -419,9 +409,9 @@
             // btnCalculate
             // 
             this.btnCalculate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCalculate.Location = new System.Drawing.Point(841, 236);
+            this.btnCalculate.Location = new System.Drawing.Point(701, 236);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(144, 23);
+            this.btnCalculate.Size = new System.Drawing.Size(284, 23);
             this.btnCalculate.TabIndex = 6;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
@@ -442,6 +432,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.lblLon);
             this.tabPage1.Controls.Add(this.lblLat);
             this.tabPage1.Controls.Add(this.lblFovDimensions);
@@ -456,23 +448,43 @@
             this.tabPage1.Text = "Information";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(17, 100);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(31, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Lon :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(17, 77);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(25, 13);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Lat:";
+            // 
             // lblLon
             // 
             this.lblLon.AutoSize = true;
-            this.lblLon.Location = new System.Drawing.Point(18, 99);
+            this.lblLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblLon.Location = new System.Drawing.Point(109, 95);
             this.lblLon.Name = "lblLon";
-            this.lblLon.Size = new System.Drawing.Size(41, 13);
+            this.lblLon.Size = new System.Drawing.Size(89, 20);
             this.lblLon.TabIndex = 9;
-            this.lblLon.Text = "label15";
+            this.lblLon.Text = "longtitude";
             // 
             // lblLat
             // 
             this.lblLat.AutoSize = true;
-            this.lblLat.Location = new System.Drawing.Point(17, 82);
+            this.lblLat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblLat.Location = new System.Drawing.Point(109, 72);
             this.lblLat.Name = "lblLat";
-            this.lblLat.Size = new System.Drawing.Size(41, 13);
+            this.lblLat.Size = new System.Drawing.Size(69, 20);
             this.lblLat.TabIndex = 8;
-            this.lblLat.Text = "label15";
+            this.lblLat.Text = "latitude";
             // 
             // lblFovDimensions
             // 
@@ -563,7 +575,6 @@
             this.ClientSize = new System.Drawing.Size(997, 472);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnCalculate);
-            this.Controls.Add(this.calculateBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.map);
@@ -606,7 +617,6 @@
         private System.Windows.Forms.NumericUpDown sensorWidth;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown focalLength;
-        private System.Windows.Forms.Button calculateBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ContextMenuStrip markerMenu;
@@ -630,6 +640,8 @@
         private System.Windows.Forms.Label lblLat;
         private System.Windows.Forms.CheckBox chkPhotoAreas;
         private System.Windows.Forms.CheckBox chkPhotoWayPoints;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
 
 
 

@@ -15,7 +15,7 @@ namespace AirSurvey.Shapes
         public PhotoAreaPolygon(InternalWayPoint center, double width, double height)
             : base(new List<PointLatLng>(), "PhotoFrameOverlay")
         {
-            Fill = new SolidBrush(Color.FromArgb(20, Color.Blue));
+            Fill = new SolidBrush(Color.FromArgb(center.active ? 20 : 0, Color.Blue));
             Stroke = new Pen(Color.Wheat, 1);
             Stroke.DashPattern = new float[] { 5, 5 };
 
@@ -34,6 +34,24 @@ namespace AirSurvey.Shapes
 
             utmCenter.x -= width;
             Points.Add(utmCenter.ToLLA());
+        }
+
+        public PhotoAreaPolygon(InternalWayPoint center, FieldOfView fov)
+            : this(center, fov.width, fov.height)
+        {
+            
+        }
+
+        public List<PointLatLngAlt> getPoints()
+        {
+            List<PointLatLngAlt> points = new List<PointLatLngAlt>();
+
+            Points.ForEach(x =>
+            {
+                points.Add(new PointLatLngAlt(x.Lat, x.Lng));
+            });
+
+            return points;
         }
 
     }

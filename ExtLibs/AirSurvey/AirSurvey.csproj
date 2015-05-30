@@ -95,13 +95,14 @@
     <Compile Include="GenericCameraModel.cs" />
     <Compile Include="GisUtils\GISUtils.cs" />
     <Compile Include="GridUtil.cs" />
+    <Compile Include="PolygonHelper.cs" />
     <Compile Include="public\IBatteryModel.cs" />
     <Compile Include="public\ICameraModel.cs" />
     <Compile Include="public\ICameraProperty.cs" />
     <Compile Include="LinearBatteryModelImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Route.cs" />
-    <Compile Include="RouteUtils.cs" />
+    <Compile Include="RouteUtil.cs" />
+    <Compile Include="RouteCalculationException.cs" />
     <Compile Include="shapes\OuterGridPolygon.cs" />
     <Compile Include="shapes\PhotoAreaPolygon.cs" />
     <Compile Include="InternalWayPoint.cs" />

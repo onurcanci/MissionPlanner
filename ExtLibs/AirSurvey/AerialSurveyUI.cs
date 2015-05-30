@@ -31,13 +31,13 @@ namespace AirSurvey
         PointLatLng startPoint;
         List<IBatteryModel> batteryModels = new List<IBatteryModel>();
         ICameraModel cameraModel = new GenericCameraModel();
-        Route route;
+        RouteUtil route;
 
 
         public AerialSurveyUI(AirSurveyPlugin plugin)
         {
             this.plugin = plugin;
-            route = new Route(plugin.Host.FPDrawnPolygon.Points);
+            route = new RouteUtil(plugin.Host.FPDrawnPolygon.Points);
 
             InitializeComponent();
             map.MapProvider = plugin.Host.FDMapType;
@@ -173,13 +173,38 @@ namespace AirSurvey
 
         private void calculateBtnClick(object sender, EventArgs e)
         {
-            cameraValuesChanged(null, null);
+            try
+            {
+                if (batteryModelCmb.SelectedItem == null)
+                    throw new FormValidationException("Please select a battery model");
 
-            drawOuterPolygon();
-            FieldOfView fov = cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString()));
-            route.calculate(fov);
+                if (maximumSpeedNm.Value == 0)
+                    throw new FormValidationException("Please enter maximum speed");
 
-            drawInternals();
+                if (flightAltitudeNm.Value == 0)
+                    throw new FormValidationException("Please enter flight altitude");
+
+                if (sensorWidth.Value == 0)
+                    throw new FormValidationException("Please enter sensor width");
+
+                if (sensorHeight.Value == 0)
+                    throw new FormValidationException("Please enter sensor height");
+
+                if (focalLength.Value == 0)
+                    throw new FormValidationException("Please enter focal length");
+
+                cameraValuesChanged(null, null);
+
+                drawOuterPolygon();
+                FieldOfView fov = cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString()));
+                route.calculate(fov,startPoint);
+
+                drawInternals();
+            }
+            catch (FormValidationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
         }
 
@@ -188,6 +213,7 @@ namespace AirSurvey
         {
             layers[INTERNAL_SHAPES].Polygons.Clear();
             layers[INTERNAL_SHAPES].Markers.Clear();
+            layers[INTERNAL_SHAPES].Clear();
 
             drawOuterPolygon();
             drawWayPoints();
@@ -200,7 +226,7 @@ namespace AirSurvey
             route.WayPoints.ForEach(wayPoint =>
             {
                 if(chkPhotoWayPoints.Checked)
-                    layers[INTERNAL_SHAPES].Markers.Add(new GMarkerGoogle(wayPoint.UtmPosition.ToLLA(), GMarkerGoogleType.yellow_dot) { ToolTipText = "Waypoint [" + wayPoint.row + "][" + wayPoint.column + "]", ToolTipMode = MarkerTooltipMode.OnMouseOver });
+                    layers[INTERNAL_SHAPES].Markers.Add(new GMarkerGoogle(wayPoint.UtmPosition.ToLLA(), wayPoint.active ? GMarkerGoogleType.yellow_dot : GMarkerGoogleType.red_dot) { ToolTipText = "Waypoint [" + wayPoint.row + "][" + wayPoint.column + "]", ToolTipMode = MarkerTooltipMode.OnMouseOver });
 
                 if(chkPhotoAreas.Checked)
                     layers[INTERNAL_SHAPES].Polygons.Add(new PhotoAreaPolygon(wayPoint, fov.width, fov.height));

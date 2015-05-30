@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace AirSurvey
 {
-    class RouteUtils
+    class RouteCalculationException : Exception
     {
-
-        public RouteUtils()
-        {
-
-        }
+        public RouteCalculationException(String message) : base(message) { }
 
     }
 }
