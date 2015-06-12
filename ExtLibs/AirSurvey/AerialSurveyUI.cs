@@ -31,13 +31,15 @@ namespace AirSurvey
         PointLatLng startPoint;
         List<IBatteryModel> batteryModels = new List<IBatteryModel>();
         ICameraModel cameraModel = new GenericCameraModel();
-        RouteUtil route;
+        private RouteUtil route;
+        private RouteUtil2 route2;
 
 
         public AerialSurveyUI(AirSurveyPlugin plugin)
         {
             this.plugin = plugin;
             route = new RouteUtil(plugin.Host.FPDrawnPolygon.Points);
+            route2 = new RouteUtil2(plugin.Host.FPDrawnPolygon.Points);
 
             InitializeComponent();
             map.MapProvider = plugin.Host.FDMapType;
@@ -171,12 +173,12 @@ namespace AirSurvey
 
         }
 
-        private void calculateBtnClick(object sender, EventArgs e)
+        private void CalculateBtnClick(object sender, EventArgs e)
         {
             try
             {
-                if (batteryModelCmb.SelectedItem == null)
-                    throw new FormValidationException("Please select a battery model");
+                //if (batteryModelCmb.SelectedItem == null)
+                //    throw new FormValidationException("Please select a battery model");
 
                 if (maximumSpeedNm.Value == 0)
                     throw new FormValidationException("Please enter maximum speed");
@@ -194,12 +196,10 @@ namespace AirSurvey
                     throw new FormValidationException("Please enter focal length");
 
                 cameraValuesChanged(null, null);
-
-                drawOuterPolygon();
-                FieldOfView fov = cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString()));
-                route.calculate(fov,startPoint);
-
-                drawInternals();
+                
+                btnCalculate.Enabled = false;
+                map.HoldInvalidation = true;
+                workerRouteCalculator.RunWorkerAsync();
             }
             catch (FormValidationException ex)
             {
@@ -209,17 +209,17 @@ namespace AirSurvey
         }
 
 
-        private void drawInternals()
+        private void DrawInternals()
         {
             layers[INTERNAL_SHAPES].Polygons.Clear();
             layers[INTERNAL_SHAPES].Markers.Clear();
             layers[INTERNAL_SHAPES].Clear();
 
-            drawOuterPolygon();
-            drawWayPoints();
+            DrawOuterPolygon();
+            DrawWayPoints();
         }
 
-        private void drawWayPoints()
+        private void DrawWayPoints()
         {
             FieldOfView fov = cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString()));
 
@@ -233,10 +233,34 @@ namespace AirSurvey
             });
         }
 
-        private void drawOuterPolygon()
+        private void DrawOuterPolygon()
         {
             if (chkOuterGrid.Checked)
                 layers[INTERNAL_SHAPES].Polygons.Add(new OuterGridPolygon(route.OuterPolygon));
+        }
+
+        private void DrawRoute()
+        {
+            chkPhotoWayPoints.Checked = false;
+            DrawInternals();
+
+            GMapRoute r = new GMapRoute("route");
+            int idx = 1;
+            route.route.WayPoints.ForEach(wp =>
+            {
+                r.Points.Add(wp.UtmPosition.ToLLA());
+                layers[INTERNAL_SHAPES].Markers.Add(new GMarkerGoogle(wp.UtmPosition.ToLLA(), wp.includeInRoute ? GMarkerGoogleType.black_small : GMarkerGoogleType.green_dot) { ToolTipText = "Route Point : " + idx, ToolTipMode = MarkerTooltipMode.OnMouseOver });
+                idx++;
+            });
+
+            double seconds = ((r.Distance*1000.0)/((Int32.Parse(maximumSpeedNm.Value.ToString())*0.8)));
+
+            layers[INTERNAL_SHAPES].Routes.Clear();
+            layers[INTERNAL_SHAPES].Routes.Add(r);
+            lblFlightDistance.Text = r.Distance.ToString("0.##");
+            lblFlightTime.Text = seconds.ToString("00.##");
+
+            lblGSD.Text = cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString())).gsd.ToString("00.##");
         }
 
         private void cameraValuesChanged(object sender, EventArgs e)
@@ -251,7 +275,7 @@ namespace AirSurvey
 
         private void chkOuterGrid_CheckedChanged(object sender, EventArgs e)
         {
-            drawOuterPolygon();
+            DrawOuterPolygon();
         }
 
         private void map_MouseMove(object sender, MouseEventArgs e)
@@ -262,6 +286,109 @@ namespace AirSurvey
 
         }
 
+        private void workerRouteCalculator_DoWork(object sender, DoWorkEventArgs e)
+        {
+            FieldOfView fov = cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString()));
+            route.Calculate(fov, startPoint);
+
+            DrawInternals();
+        }
+
+        private void workerRouteCalculator_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            btnCalculate.Enabled = true;
+            map.HoldInvalidation = false;
+            DrawRoute();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cameraValuesChanged(null, null);
+            route.CalculateGrid(cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString())));
+            DrawInternals();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cameraValuesChanged(null, null);
+
+            double angle = angleNumeric.Value.CompareTo(0) == 0 ? PolygonHelper.calculateAngle(route.Polygon) : Double.Parse(angleNumeric.Value.ToString());
+            lblAngle.Text = angle.ToString("##.000");
+            lblGSD.Text = cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString())).gsd.ToString("00.##");
+            
+            route2.Calculate(cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString())),angle,startPoint);
+            
+            
+            
+            
+            //lblAngle.Text = angle.ToString("##.00");
+            //double overshoot = 0;
+            //double overshoot2 = 0;
+
+            //List<PointLatLngAlt> grid = grid = Grid.CreateGrid(route.Polygon, CurrentState.fromDistDisplayUnit((double)flightAltitudeNm.Value), fov.width, fov.height, angle, startPoint);
+
+            //chkPhotoWayPoints.Checked = false;
+            //chkOuterGrid.Checked = false;
+            //chkPhotoAreas.Checked = false;
+            
+
+            layers[INTERNAL_SHAPES].Markers.Clear();
+            layers[INTERNAL_SHAPES].Routes.Clear();
+
+            GMapRoute r = new GMapRoute("route");
+            int idx = 1;
+            route2.RoutePoints.ForEach(wp =>
+            {
+                r.Points.Add(wp);
+                layers[INTERNAL_SHAPES].Markers.Add(new GMarkerGoogle(wp, GMarkerGoogleType.black_small) { ToolTipText = "Route Point : " + idx, ToolTipMode = MarkerTooltipMode.OnMouseOver });
+                idx++;
+            });
+
+            layers[INTERNAL_SHAPES].Routes.Add(r);
+            lblFlightDistance.Text = r.Distance.ToString("0.##");
+            double seconds = ((r.Distance * 1000.0) / ((Int32.Parse(maximumSpeedNm.Value.ToString()) * 0.8)));
+            lblFlightTime.Text = seconds.ToString("00.##");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            double angle = PolygonHelper.calculateAngle(route.Polygon);
+            lblAngle.Text = angle.ToString("##.000");
+
+            double angle2 = PolygonHelper.calculateMainAngle(route.Polygon);
+            int a = 10;
+        }
+
+        private void angleNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            button2_Click(sender, e);
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            cameraValuesChanged(null, null);
+
+            double minimum = Double.MaxValue;
+            int angle = 0;
+
+            for (int i = 0; i < 360; i++)
+            {
+                route2.Calculate(cameraModel.calculateFov(Int32.Parse(flightAltitudeNm.Value.ToString())), i, startPoint);
+                RouteStat stat = new RouteStat(route2, Int32.Parse(maximumSpeedNm.Value.ToString()));
+
+                if (stat.FlightDistance < minimum)
+                {
+                    angle = i;
+                    minimum = stat.FlightDistance;
+                }
+            }
+
+            angleNumeric.Value = angle;
+            angleNumeric_ValueChanged(sender, e);
+
+        }
+
        
     }
 }
+

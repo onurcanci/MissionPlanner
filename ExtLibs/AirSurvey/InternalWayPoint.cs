@@ -12,6 +12,23 @@ namespace AirSurvey
         private int _row;
         private int _col;
         private utmpos _pos;
+        public bool includeInRoute = true;
+
+
+        public InternalWayPoint(utmpos pos, int col, int row)
+        {
+            _pos = pos;
+            _col = col;
+            _row = row;
+        }
+
+        public InternalWayPoint(utmpos pos, bool includeInRoute, int col, int row)
+        {
+            _pos = pos;
+            this.includeInRoute = includeInRoute;
+            _col = col;
+            _row = row;
+        }
 
         public utmpos UtmPosition
         {
@@ -35,14 +52,10 @@ namespace AirSurvey
             }
         }
 
+
+
         public bool active = true;
 
-        public InternalWayPoint(utmpos position, int column, int row)
-        {
-            this._row = row;
-            this._col = column;
-            this._pos = position;
-        }
 
 
     }

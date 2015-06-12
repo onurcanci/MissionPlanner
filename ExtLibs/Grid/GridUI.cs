@@ -497,13 +497,7 @@ namespace MissionPlanner
             if (CMB_camera.Text != "")
                 doCalc();
 
-            // new grid system test
-
             grid = Grid.CreateGrid(list, CurrentState.fromDistDisplayUnit((double)NUM_altitude.Value), (double)NUM_Distance.Value, (double)NUM_spacing.Value, (double)NUM_angle.Value, (double)NUM_overshoot.Value, (double)NUM_overshoot2.Value, (Grid.StartPosition)Enum.Parse(typeof(Grid.StartPosition), CMB_startfrom.Text), false);
-
-            List<PointLatLng> list2 = new List<PointLatLng>();
-
-            grid.ForEach(x => { list2.Add(x); });
 
             map.HoldInvalidation = true;
 
